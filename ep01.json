@@ -1,0 +1,222 @@
+{
+  "title": "CROWNLESS - Episode 1: The Null Sigil",
+  "scenes": [
+    {"img": "01", "motion": "zoom_in", "card": ["CROWNLESS", "EPISODE 1  -  THE NULL SIGIL"], "sfx": ["boom"],
+     "lines": [{"who": "narrator", "text": "A hundred years ago, the Crown of Aldareth shattered into a thousand pieces. From its fragments, the Sigils were born. Power, ranked from S to F. And everyone who could not carry one was simply... forgotten."}]},
+
+    {"img": "02", "motion": "zoom_out", "flash": true,
+     "lines": [{"who": "narrator", "text": "But before the crown, before the cage, before the world learned his name... there was a boy, bleeding in the dark."},
+               {"who": "kael", "text": "Not yet. I'm not done yet."},
+               {"who": "narrator", "text": "Let's go back. Three days earlier."}]},
+
+    {"img": "03", "motion": "pan_right", "loc": "VARETH  -  CAPITAL OF ALDARETH",
+     "lines": [{"who": "narrator", "text": "The city of Vareth. A place where your worth is measured in light. Gold for the elite. Silver for the useful. And for the unlucky... nothing at all."},
+               {"who": "narrator", "text": "Today was Awakening Day. The day every seventeen year old in the kingdom learns exactly what they are worth."}]},
+
+    {"img": "04", "motion": "zoom_in",
+     "lines": [{"who": "narrator", "text": "Inside the Sigil Hall, the Crystal Orb waited. Hundreds of hopefuls stood in line, praying for fire, for lightning, for a destiny."},
+               {"who": "kael", "text": "Don't be nervous, Kael. Just... don't be nervous."},
+               {"who": "narrator", "text": "Kael Draven. Seventeen. Orphan. With one dream: to become strong enough to protect the only family he had left."}]},
+
+    {"img": "06", "motion": "zoom_up", "sfx": [["hit", 9.0]],
+     "lines": [{"who": "narrator", "text": "Before Kael stood Dorian Vance. Heir of the proudest noble house in Vareth."},
+               {"who": "dorian", "text": "Watch closely, peasants. This is what a true Sigil looks like."},
+               {"who": "narrator", "text": "The orb exploded in crimson fire. S-Rank. The hall erupted in cheers."}]},
+
+    {"img": "04", "motion": "pan_left",
+     "lines": [{"who": "narrator", "text": "Then the examiner called the next name."},
+               {"who": "examiner", "text": "Kael Draven. Place your hand upon the orb."},
+               {"who": "narrator", "text": "He did. Everyone leaned in. The orb flickered once. Twice. And then it went completely dark."}]},
+
+    {"img": "05", "motion": "zoom_in", "sfx": ["boom"],
+     "lines": [{"who": "examiner", "text": "Null. No Sigil detected. Next."},
+               {"who": "narrator", "text": "Laughter rolled through the hall like a wave. Null. The lowest word in the kingdom's language. It meant no power, no future, no place."},
+               {"who": "kael", "text": "It has to be wrong. Test it again!"},
+               {"who": "examiner", "text": "The orb does not lie, boy. Step aside."}]},
+
+    {"img": "06", "motion": "zoom_in",
+     "lines": [{"who": "dorian", "text": "A Null? Hah! Even the dust on my boots has more power than you."},
+               {"who": "dorian", "text": "Tell you what, Draven. My party needs someone to carry our bags into the Gate tomorrow. Three hundred gold. Try not to die."},
+               {"who": "narrator", "text": "Kael clenched his fists. He wanted to scream. But three hundred gold was exactly the number he needed."}]},
+
+    {"img": "07", "motion": "pan_right", "loc": "THE LOWER DISTRICT",
+     "lines": [{"who": "narrator", "text": "Far from the golden towers, in a crumbling house, lived the only person who ever believed in him."},
+               {"who": "mira", "text": "Welcome home, big brother. So... what was it?"},
+               {"who": "kael", "text": "Fire, Mira. A big, stupid, S-Rank fire."},
+               {"who": "mira", "text": "Liar. You always rub your neck when you lie."}]},
+
+    {"img": "08", "motion": "zoom_in",
+     "lines": [{"who": "narrator", "text": "Mira had the Hollow Fever. A sickness the healers could hold back, but only for three hundred gold a dose."},
+               {"who": "mira", "text": "It's okay if you're a Null. You're still my hero."},
+               {"who": "kael", "text": "Hey, this hero has a job tomorrow. Good pay. Easy work. Nothing dangerous. I promise."},
+               {"who": "narrator", "text": "It was the first lie he had ever told her."}]},
+
+    {"img": "09", "motion": "zoom_out", "loc": "THE ASHEN GATE  -  RANK C", "sfx": ["whoosh"],
+     "lines": [{"who": "narrator", "text": "At dawn, the Ashen Gate tore open the sky. A rift into another world, where monsters bleed treasure and men bleed everything else."},
+               {"who": "dorian", "text": "Remember the rules, Null. Stay behind us. Carry the packs. And if I say run..."},
+               {"who": "kael", "text": "I run."},
+               {"who": "dorian", "text": "No. You run last."}]},
+
+    {"img": "10", "motion": "pan_left",
+     "lines": [{"who": "narrator", "text": "The dungeon swallowed them whole. Torches that burned without fuel. Walls that whispered in forgotten tongues."},
+               {"who": "tessa", "text": "Dorian, this corridor isn't on the map. The mana here feels wrong."},
+               {"who": "dorian", "text": "Relax, Tessa. It's a C-Rank Gate. We could clear it blindfolded."},
+               {"who": "narrator", "text": "Kael felt it too. A pressure, as if the dungeon itself was holding its breath."}]},
+
+    {"img": "10", "motion": "zoom_in", "sfx": [["boom", 12.0]],
+     "lines": [{"who": "kael", "text": "Dorian, something is moving behind the walls."},
+               {"who": "dorian", "text": "Quiet, porter."},
+               {"who": "narrator", "text": "The ground trembled. And from the dark, something enormous began to wake."}]},
+
+    {"img": "12", "motion": "zoom_in", "flash": true,
+     "lines": [{"who": "narrator", "text": "The Stone Wraith. A monster ranked far above any C-Rank Gate. Either a mistake in the world's design, or a trap waiting for prey."},
+               {"who": "wraith", "text": "Who... disturbs... my sleep?"},
+               {"who": "tessa", "text": "That's an A-Rank! Dorian, we have to run!"}]},
+
+    {"img": "11", "motion": "zoom_out", "sfx": [["hit", 8.0]],
+     "lines": [{"who": "dorian", "text": "Not like this. I will not lose my knighthood to this thing."},
+               {"who": "narrator", "text": "Dorian looked at the monster. Then at his party. Then at the one person who was expendable."},
+               {"who": "dorian", "text": "Sorry, Null. Buy us ten seconds."},
+               {"who": "narrator", "text": "He kicked Kael's legs out from under him, and ran."}]},
+
+    {"img": "11", "motion": "pan_right", "hold": 3,
+     "lines": [{"who": "kael", "text": "Dorian! Wait!"},
+               {"who": "narrator", "text": "The party fled. The footsteps faded. And Kael was alone with a god of stone."},
+               {"who": "tessa", "text": "I'm sorry... I'm so sorry."}]},
+
+    {"img": "12", "motion": "zoom_up", "sfx": [["hit", 7.0]],
+     "lines": [{"who": "wraith", "text": "Another... small soul. Come. Be... still."},
+               {"who": "narrator", "text": "The blow landed. Ribs shattered like glass. The world turned white, then red, then silent."}]},
+
+    {"img": "13", "motion": "zoom_in",
+     "lines": [{"who": "narrator", "text": "Kael lay broken on the cold stone, his blood spreading like a dark flower. This was it."},
+               {"who": "kael", "text": "Mira... I'm sorry. I couldn't even buy your medicine."},
+               {"who": "narrator", "text": "And in that final breath, something answered him."}]},
+
+    {"img": "13", "motion": "pan_up", "sys": "[ SYSTEM ]\nAnomaly detected.\nSigil classification: NULL\nRecalculating...\nClassification: UNBOUND", "at": 2.0,
+     "lines": [{"who": "narrator", "text": "A blue light bloomed before his dying eyes."},
+               {"who": "system", "text": "Anomaly detected. Sigil classification: Null. Recalculating. Correction. Classification: Unbound."}]},
+
+    {"img": "14", "motion": "zoom_out", "sys": "[ SYSTEM ]\nYOU HAVE BEEN CHOSEN\nAccept the path of the Crownless?\n[ YES ]        [ NO ]", "at": 1.5, "sfx": [["boom", 18.0]],
+     "lines": [{"who": "system", "text": "You have been chosen. Do you accept the path of the Crownless?"},
+               {"who": "kael", "text": "Whatever you are... if it means I can save her... yes."},
+               {"who": "narrator", "text": "The moment he said yes, the world shattered."}]},
+
+    {"img": "14", "motion": "zoom_up", "flash": true, "sys": "[ SYSTEM ]\nSTATUS RESTORED\nHP: 1 / 100\nQUEST: SURVIVE 10 MINUTES\nPenalty: Death", "at": 1.2,
+     "lines": [{"who": "system", "text": "Emergency quest issued. Survive ten minutes. Penalty for failure: death."},
+               {"who": "narrator", "text": "Pain became clarity. Fear became focus. And Kael's eyes began to glow blue, like the heart of a dying star."}]},
+
+    {"img": "14", "motion": "zoom_in",
+     "lines": [{"who": "kael", "text": "So that's how it is. Then I'll survive. One second at a time."},
+               {"who": "narrator", "text": "He reached for the sword of a fallen knight, half buried in rubble. It was heavier than anything he had ever held. But somehow it felt like it had been waiting for him."}]},
+
+    {"img": "12", "motion": "pan_left",
+     "lines": [{"who": "wraith", "text": "You still stand? Impossible. You are... nothing."},
+               {"who": "kael", "text": "Yeah. That's what everyone says."},
+               {"who": "narrator", "text": "Kael smiled. A real smile. The first one all day."}]},
+
+    {"img": "15", "motion": "zoom_in", "sys": "[ SYSTEM ]\nSKILL ACQUIRED\nPerfect Read  -  Lv. 1\nEnemy movement predicted.", "at": 1.5, "sfx": [["hit", 14.0]],
+     "lines": [{"who": "narrator", "text": "The wraith swung. And for the first time in his life, Kael could see the attack before it landed."},
+               {"who": "kael", "text": "Left. Down. Now!"},
+               {"who": "system", "text": "Skill acquired. Perfect Read."}]},
+
+    {"img": "15", "motion": "pan_right", "sfx": [["whoosh", 3.0], ["whoosh", 10.0]],
+     "lines": [{"who": "narrator", "text": "He weaved through the strikes like water through stone. Every dodge taught him something. Every wound made him sharper."},
+               {"who": "system", "text": "Six minutes remaining."},
+               {"who": "kael", "text": "I'm not... done... yet!"}]},
+
+    {"img": "15", "motion": "zoom_out",
+     "lines": [{"who": "narrator", "text": "But skill alone could not break a mountain. The wraith's armor was thicker than any blade could cut."},
+               {"who": "kael", "text": "Then I'll find the crack."},
+               {"who": "narrator", "text": "And in that moment of desperation, he noticed it. A faint blue glow, deep within the monster's chest. The core."}]},
+
+    {"img": "12", "motion": "zoom_up", "sfx": ["boom"],
+     "lines": [{"who": "wraith", "text": "Enough! Turn to dust, insect!"},
+               {"who": "narrator", "text": "The monster unleashed a wave of blue fire that filled the entire cavern."},
+               {"who": "kael", "text": "This is it. Everything. Right now."}]},
+
+    {"img": "14", "motion": "zoom_in", "flash": true, "sys": "[ SYSTEM ]\nSKILL ACQUIRED\nCROWNLESS STRIKE\nBreak any limit. Once.", "at": 1.5,
+     "lines": [{"who": "system", "text": "Skill acquired. Crownless Strike."},
+               {"who": "narrator", "text": "Light gathered along the blade. Not fire. Not lightning. Something older. Something the world had forgotten."}]},
+
+    {"img": "15", "motion": "zoom_in", "hold": 3, "sfx": [["whoosh", 4.0], ["boom", 9.0]],
+     "lines": [{"who": "kael", "text": "This is for every Null who was ever told they were nothing!"},
+               {"who": "narrator", "text": "He leapt. One strike. One chance. One life."}]},
+
+    {"img": "16", "motion": "zoom_out", "flash": true, "sfx": ["boom"],
+     "lines": [{"who": "narrator", "text": "The blade pierced the core. For a heartbeat, the entire dungeon went silent. Then the wraith shattered into a thousand shards of blue light, rising into the dark like falling stars."},
+               {"who": "wraith", "text": "Impossible... a Null... defeated... me..."}]},
+
+    {"img": "16", "motion": "pan_up", "sys": "[ SYSTEM ]\nQUEST COMPLETE\nLEVEL UP!   Lv. 1  >>  Lv. 12\nStat points +10", "at": 1.5,
+     "lines": [{"who": "system", "text": "Quest complete. Level up. Level one to level twelve. Rewards distributed."},
+               {"who": "narrator", "text": "In a single battle, the weakest man in Vareth had become something the world had never seen."}]},
+
+    {"img": "16", "motion": "zoom_in",
+     "lines": [{"who": "kael", "text": "Level twelve? What... what are you?"},
+               {"who": "system", "text": "I am the System. I choose those who refuse to kneel."},
+               {"who": "kael", "text": "Then choose me every day. I'll climb until nothing can look down on me again."},
+               {"who": "narrator", "text": "And somewhere far above, a bell began to ring."}]},
+
+    {"img": "17", "motion": "zoom_in", "loc": "THE ASHEN GATE  -  EXIT",
+     "lines": [{"who": "narrator", "text": "When Kael walked out of the Gate at dusk, the entire rescue guild fell silent. Bloodied. Broken. And somehow, unmistakably alive."},
+               {"who": "dorian", "text": "No. No, that's not possible. You were dead!"},
+               {"who": "kael", "text": "Surprised?"}]},
+
+    {"img": "17", "motion": "pan_left",
+     "lines": [{"who": "tessa", "text": "Kael... you survived an A-Rank?"},
+               {"who": "kael", "text": "Three hundred gold, Dorian. Now."},
+               {"who": "narrator", "text": "Dorian threw the pouch with shaking hands. Because for the first time, the boy he had mocked was not looking up at him. He was looking straight through him."},
+               {"who": "dorian", "text": "My father will hear of this!"},
+               {"who": "kael", "text": "Good. Tell him I'm coming."}]},
+
+    {"img": "07", "motion": "zoom_in", "loc": "THE LOWER DISTRICT  -  NIGHT",
+     "lines": [{"who": "narrator", "text": "That night, the medicine finally reached Mira's lips."},
+               {"who": "mira", "text": "Brother... your hands are shaking. What happened?"},
+               {"who": "kael", "text": "Nothing. Just a very long day. Go to sleep."},
+               {"who": "narrator", "text": "She fell asleep smiling. He sat by her bed, watching a faint blue light flicker in his palm. A second lie. But this time he made a promise to himself: it would be the last."}]},
+
+    {"img": "20", "motion": "zoom_out", "sys": "[ SYSTEM ]\nDAILY QUEST\nPush-ups x 100\nSit-ups x 100\nRun 10 km\nPenalty: UNKNOWN", "at": 1.5,
+     "lines": [{"who": "system", "text": "Daily quest issued. One hundred push-ups. One hundred sit-ups. Ten kilometers. Penalty for failure: unknown."},
+               {"who": "kael", "text": "Of course there's a catch. Fine. I've been weak my whole life. I can handle a little pain."},
+               {"who": "narrator", "text": "And so, on a rooftop above a sleeping city, he began to train."}]},
+
+    {"img": "18", "motion": "zoom_in", "loc": "THE CITADEL OF THRONES",
+     "lines": [{"who": "narrator", "text": "Far above the city, in the black tower where kings once ruled, a man watched the night sky turn strangely blue."},
+               {"who": "narrator", "text": "Ignis Hale. Director of the Crown Trials. A man who had never once been wrong about who would matter."},
+               {"who": "ignis", "text": "A new light in the Lower District. How curious."}]},
+
+    {"img": "18", "motion": "pan_up",
+     "lines": [{"who": "ignis", "text": "Delay nothing. Send the invitations. I want every hungry fool in this kingdom in my arena by the end of the week."},
+               {"who": "narrator", "text": "Three days later, every fighter in Aldareth received the same sealed black letter."}]},
+
+    {"img": "19", "motion": "zoom_out", "sfx": ["boom"],
+     "lines": [{"who": "ignis", "text": "Citizens of Aldareth. The Crown has been broken for a hundred years. Heroes did not mend it. Teams did not mend it. Today, we try something different."}]},
+
+    {"img": "19", "motion": "pan_right",
+     "lines": [{"who": "ignis", "text": "Three hundred of the kingdom's finest will enter the Blue Cage. A tower with no exits and no allies. One rule: only the ego that refuses to break will wear the crown."},
+               {"who": "narrator", "text": "The Crown Trials. A tournament where every victory is built on someone else's defeat."}]},
+
+    {"img": "19", "motion": "zoom_in",
+     "lines": [{"who": "ignis", "text": "The strongest will not be the one with the best Sigil. It will be the one who wants it most. Hunger, gentlemen. Hunger is the only currency that matters in the cage."},
+               {"who": "narrator", "text": "Across the kingdom, thousands tore open their letters. Heroes. Nobles. Prodigies."}]},
+
+    {"img": "06", "motion": "zoom_up",
+     "lines": [{"who": "dorian", "text": "The Crown will be mine. And when I'm done, that Null will crawl."},
+               {"who": "narrator", "text": "But one letter arrived at a crumbling house in the Lower District, addressed to a boy with no Sigil at all."}]},
+
+    {"img": "08", "motion": "zoom_in",
+     "lines": [{"who": "kael", "text": "Kael Draven. Rank: Unclassified. You are invited to the Crown Trials."},
+               {"who": "mira", "text": "Brother... you're going, aren't you?"},
+               {"who": "kael", "text": "The winner gets a wish, Mira. Any wish the Crown can grant. Enough to cure every Hollow Fever in the world."},
+               {"who": "mira", "text": "Then promise me you'll come back."},
+               {"who": "kael", "text": "I promise. And this time, it's not a lie."}]},
+
+    {"img": "20", "motion": "pan_right", "sys": "[ SYSTEM ]\nNEW MAIN QUEST\nWIN THE CROWN TRIALS\nReward: ???\nDifficulty: IMPOSSIBLE", "at": 1.5,
+     "lines": [{"who": "system", "text": "New main quest. Win the Crown Trials. Difficulty: impossible."},
+               {"who": "kael", "text": "Impossible? Good. Everyone said I was impossible, too."},
+               {"who": "narrator", "text": "And so, the boy with no Sigil walked toward the tallest tower in the world."}]},
+
+    {"img": "18", "motion": "zoom_out", "card": ["NEXT EPISODE", "THE BLUE CAGE"], "sfx": ["boom"],
+     "lines": [{"who": "narrator", "text": "Three hundred fighters. One cage. One crown. And a Null who refused to stay nothing."}]}
+  ]
+       }
