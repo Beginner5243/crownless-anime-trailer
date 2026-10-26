@@ -1,2 +1,2 @@
-Pillow
-edge-tts
+edge-tts>=7.0.0
+Pillow>=10.0.0
