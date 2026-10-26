@@ -1,44 +1,66 @@
-
-name: CROWNLESS Anime Trailer
+name: Render Episode
 
 on:
   workflow_dispatch:
+    inputs:
+      episode:
+        description: "Episode id (ep01 = ep01.json in repo root)"
+        default: "ep01"
+        required: true
+      preview:
+        description: "Quick test: render only first N scenes (0 = full episode)"
+        default: "0"
+        required: true
+      target_minutes:
+        description: "Minimum episode length in minutes"
+        default: "20"
+        required: true
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-
+    timeout-minutes: 300
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
+          cache: pip
 
-      - name: Install FFmpeg
+      - name: Install ffmpeg and fonts
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg fonts-dejavu-core
 
       - name: Install Python packages
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
-      - name: Render English and Hindi trailers
-        run: python render.py
+      - name: Render episode
+        env:
+          EP: ${{ inputs.episode }}
+          PREVIEW: ${{ inputs.preview }}
+          TARGET: ${{ inputs.target_minutes }}
+        run: python render.py --episode "$EP" --preview "$PREVIEW" --target-minutes "$TARGET" --jobs 3
 
-      - name: Upload generated videos
+      - name: Save as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: crownless-anime-trailers
-          path: output/*.mp4
-          if-no-files-found: error
-          retention-days: 7
+          name: ${{ inputs.episode }}-output
+          path: out/*
+          retention-days: 14
+
+      - name: Publish release (direct MP4 download from phone)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          EP: ${{ inputs.episode }}
+          PREVIEW: ${{ inputs.preview }}
+        run: |
+          TAG="${EP}-run${GITHUB_RUN_NUMBER}"
+          FLAGS=""
+          if [ "$PREVIEW" != "0" ]; then FLAGS="--prerelease"; fi
+          gh release create "$TAG" out/*.mp4 out/*.srt --title "$EP (run ${GITHUB_RUN_NUMBER})" --notes "Rendered by GitHub Actions. Download the .mp4 below." $FLAGS
           
