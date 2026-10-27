@@ -473,4 +473,93 @@ def make_music(total, out):
     for n in nodes:
         inputs += ["-f", "lavfi", "-i", n]
     fc = ("[0:a]volume=0.5[p0];[1:a]volume=0.3,tremolo=f=0.17:d=0.6[p1];[2:a]volume=0.22,tremolo=f=0.11:d=0.7[p2];"
-          "[3:a]volume=0.12,tremolo=f=0.23:d=0.8[p3];[4:a]volume=0.55[hb];[5:a]lowpass=f=260,volume=0.5[nz];
+          "[3:a]volume=0.12,tremolo=f=0.23:d=0.8[p3];[4:a]volume=0.55[hb];[5:a]lowpass=f=260,volume=0.5[nz];"
+          "[p0][p1][p2][p3][hb][nz]amix=inputs=6:normalize=0,lowpass=f=900,aformat=channel_layouts=stereo[m]")
+    run(["ffmpeg", "-y", "-v", "error", *inputs, "-filter_complex", fc, "-map", "[m]", "-ar", "44100", out], "music")
+
+
+def finish(plan, episode, music_file):
+    total = sum(p["dur"] for p in plan)
+    lst = BUILD / "concat.txt"
+    lst.write_text("".join(f"file '{BUILD / f'scene_{p['idx']:03d}.mp4'}'\n" for p in plan))
+    if music_file and Path(music_file).exists():
+        music = Path(music_file)
+        print(f"music: using {music.name}")
+    else:
+        music = BUILD / "music_synth.wav"
+        make_music(total + 2, music)
+        print("music: synthesized dark ambient bed (drop music.mp3 in repo root to use your own)")
+    OUT.mkdir(exist_ok=True)
+    final = OUT / f"{episode}.mp4"
+    fc = (f"[1:a]volume=0.55,afade=t=in:st=0:d=4,afade=t=out:st={max(total - 7, 1):.1f}:d=7[m];"
+          f"[0:a][m]amix=inputs=2:normalize=0:duration=first,loudnorm=I=-16:TP=-1.5:LRA=11[a]")
+    run(["ffmpeg", "-y", "-v", "error", "-f", "concat", "-safe", "0", "-i", lst, "-stream_loop", "-1", "-i", music,
+         "-filter_complex", fc, "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k",
+         "-shortest", "-movflags", "+faststart", final], "final mix")
+    return final
+
+
+def write_srt(plan, episode):
+    OUT.mkdir(exist_ok=True)
+    t0, n, rows = 0.0, 1, []
+    for p in plan:
+        for it in p["items"]:
+            chunks = split_chunks(it["text"])
+            tot = sum(len(c) for c in chunks) or 1
+            t = t0 + it["start"]
+            for c in chunks:
+                seg = it["dur"] * len(c) / tot
+                tag = f"{it['spec'].get('name')}: " if it["spec"].get("label") else ""
+                rows.append(f"{n}\n{srt_time(t)} --> {srt_time(t + seg)}\n{tag}{c}\n")
+                t += seg
+                n += 1
+        t0 += p["dur"]
+    (OUT / f"{episode}.srt").write_text("\n".join(rows), encoding="utf-8")
+
+
+# --------------------------------------------------------------------------- main
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--episode", default="ep01")
+    ap.add_argument("--preview", type=int, default=0, help="render only first N scenes at low res")
+    ap.add_argument("--target-minutes", type=float, default=0)
+    ap.add_argument("--min-scene", type=float, default=22.0)
+    ap.add_argument("--vertical", action="store_true")
+    ap.add_argument("--plan-only", action="store_true")
+    ap.add_argument("--jobs", type=int, default=2)
+    a = ap.parse_args()
+
+    ep_dir = ROOT / "episodes" / a.episode
+    sp = next((c for c in (ROOT / f"{a.episode}.json", ep_dir / "script.json") if c.exists()), None)
+    if sp is None:
+        sys.exit(f"Script not found: {a.episode}.json (put it in the repo root)")
+    script = json.loads(sp.read_text(encoding="utf-8"))
+    voices = {**DEFAULT_VOICES, **script.get("voices", {})}
+
+    if a.preview:
+        W, H = (480, 854) if a.vertical else (854, 480)
+        preset, crf = "ultrafast", "29"
+    else:
+        W, H = (1080, 1920) if a.vertical else (1920, 1080)
+        preset, crf = "veryfast", "22"
+
+    print(f"== {script.get('title', a.episode)} | {W}x{H} | {'PREVIEW' if a.preview else 'FULL'} ==")
+    plan = plan_scenes(script, a.episode, ep_dir, voices, a.min_scene, a.preview)
+    if a.target_minutes and not a.preview:
+        stretch_to_target(plan, a.target_minutes * 60)
+    total = sum(p["dur"] for p in plan)
+    print(f"{len(plan)} scenes, planned runtime {int(total // 60)}m {int(total % 60)}s")
+    if a.plan_only:
+        return
+    write_srt(plan, a.episode)
+
+    t0 = time.time()
+    with ThreadPoolExecutor(max_workers=max(1, a.jobs)) as ex:
+        list(ex.map(lambda p: render_scene(p, a.episode, ep_dir, W, H, preset, crf, len(plan)), plan))
+    print(f"scenes rendered in {(time.time() - t0) / 60:.1f} min")
+    final = finish(plan, a.episode, ROOT / "music.mp3")
+    print(f"\nDONE -> {final}  ({final.stat().st_size / 1e6:.0f} MB, {int(total // 60)}m {int(total % 60)}s)")
+
+
+if __name__ == "__main__":
+    main()
